@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, Building } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-engineering.jpg";
+import bridgeProject from "@/assets/bridge-project.jpg";
+import officeBuilding from "@/assets/office-building.jpg";
 
 const HeroSection = () => {
   return (
@@ -13,7 +15,7 @@ const HeroSection = () => {
           alt="Engineering Excellence" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/10"></div>
       </div>
 
       {/* Content */}
@@ -44,26 +46,61 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white">
-              <Award className="h-12 w-12 text-secondary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">25+</h3>
-              <p className="text-primary-foreground/80">Years of Excellence</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white">
-              <Building className="h-12 w-12 text-secondary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">200+</h3>
-              <p className="text-primary-foreground/80">Projects Completed</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white sm:col-span-2">
-              <Users className="h-12 w-12 text-secondary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Expert Team</h3>
-              <p className="text-primary-foreground/80">
-                Certified engineers and project managers committed to excellence
-              </p>
+          {/* Project Images Gallery */}
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="relative overflow-hidden rounded-lg shadow-xl">
+                  <img 
+                    src={bridgeProject} 
+                    alt="Bridge Engineering Project" 
+                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <p className="text-sm font-medium">Infrastructure</p>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-lg shadow-xl">
+                  <img 
+                    src="/images/services-bg.webp" 
+                    alt="Engineering Services" 
+                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 text-white">
+                    <p className="text-xs font-medium">Services</p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4 mt-8">
+                <div className="relative overflow-hidden rounded-lg shadow-xl">
+                  <img 
+                    src={officeBuilding} 
+                    alt="Commercial Building Project" 
+                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-2 left-2 text-white">
+                    <p className="text-xs font-medium">Commercial</p>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-lg shadow-xl">
+                  <img 
+                    src="/images/contact-bg.jpg" 
+                    alt="Engineering Consultation" 
+                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <p className="text-sm font-medium">Consultation</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </section>

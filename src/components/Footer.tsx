@@ -10,11 +10,11 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <img 
-                src="/lovable-uploads/519c857c-86df-4891-a4cc-e93fca25a7fa.png" 
+                src="/images/logo.png" 
                 alt="RFA Logo" 
                 className="h-8 w-auto brightness-0 invert"
               />
-              <span className="text-lg font-bold">RFA</span>
+              <span className="text-lg font-bold">Ranmal Fernando Associates</span>
             </div>
             <p className="text-sm text-primary-foreground/80">
               Leading engineering consultancy delivering innovative solutions for 
@@ -66,12 +66,9 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Mail className="h-4 w-4" />
-                <span>info@ranmalfernando.lk</span>
+                <span>ranmalfrnnd@yahoo.com</span>
               </div>
-              <div className="flex space-x-3 mt-4">
-                <Linkedin className="h-5 w-5 hover:text-primary-foreground/80 cursor-pointer transition-colors" />
-                <Twitter className="h-5 w-5 hover:text-primary-foreground/80 cursor-pointer transition-colors" />
-              </div>
+              
             </div>
           </div>
         </div>
@@ -80,6 +77,18 @@ const Footer = () => {
           <p className="text-sm text-primary-foreground/60">
             © 2024 Ranmal Fernando Associates. All rights reserved.
           </p>
+            <p className="text-sm text-primary-foreground/60">
+            Designed & Developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/ravindifernando/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary-foreground/80 transition-colors"
+            >
+              Ravindi Fernando
+            </a>
+            </p>
+          
         </div>
       </div>
     </footer>

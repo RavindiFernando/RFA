@@ -28,13 +28,7 @@ const ServicesSection = () => {
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold text-primary">Our Engineering Services</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We provide comprehensive engineering solutions across multiple disciplines, 
-            delivering excellence in every project phase from conception to completion.
-          </p>
-        </div>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (

@@ -12,6 +12,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
   ];
@@ -23,9 +24,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/519c857c-86df-4891-a4cc-e93fca25a7fa.png" 
+              src="/images/logo.png" 
               alt="RFA Logo" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
             <span className="text-xl font-bold text-primary">
               Ranmal Fernando Associates
@@ -38,16 +39,14 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-m font-medium transition-colors hover:text-primary ${
                   isActive(item.path) ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button variant="default" asChild>
-              <Link to="/contact">Get Quote</Link>
-            </Button>
+            
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,11 +76,7 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="default" className="mx-3 mt-2" asChild>
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
-                  Get Quote
-                </Link>
-              </Button>
+              
             </div>
           </div>
         )}

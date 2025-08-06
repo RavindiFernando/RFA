@@ -61,23 +61,18 @@ const About = () => {
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-primary">Our Story</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Established in 1999 by Ranmal Fernando, our firm began with a simple yet powerful 
-                mission: to deliver engineering solutions that not only meet technical requirements 
-                but also contribute to sustainable community development.
+                Ranmal Fernando Associates (RFA) was founded in February 2007 by Eng.Ranmal Fernando, following a distinguished 17-year career as a site engineer, project engineer at State Engineering Corporation, and Chief Engineer at Kelsey Developments Pvt Ltd. RFA stands as a premier structural and civil engineering firm specializing in structural designs, project management, retrofitting works for existing buildings, and value engineering
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Over the years, we have grown from a small consultancy to a leading engineering 
-                firm, working on projects that range from residential developments to major 
-                infrastructure initiatives. Our success is built on a foundation of technical 
-                excellence, integrity, and unwavering commitment to client satisfaction.
+                Over the years, RFA has grown significantly, undertaking numerous high-profile projects and expanding its team of experts. We collaborate closely with clients, architects, MEP engineers, and quantity surveyors to achieve comprehensive project outcomes. Our extensive portfolio includes diverse sectors such as commercial buildings, mixed developments, housing schemes, apartments, hospitals, academic buildings, and large-scale factories.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-primary">1999</h3>
+                  <h3 className="text-3xl font-bold text-primary">2007</h3>
                   <p className="text-muted-foreground">Founded</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-3xl font-bold text-primary">200+</h3>
+                  <h3 className="text-3xl font-bold text-primary">300+</h3>
                   <p className="text-muted-foreground">Projects</p>
                 </div>
               </div>

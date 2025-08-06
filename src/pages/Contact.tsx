@@ -14,7 +14,6 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    company: "",
     projectType: "",
     message: ""
   });
@@ -30,7 +29,6 @@ const Contact = () => {
       name: "",
       email: "",
       phone: "",
-      company: "",
       projectType: "",
       message: ""
     });
@@ -48,36 +46,30 @@ const Contact = () => {
       icon: MapPin,
       title: "Office Location",
       details: [
-        "Level 15, World Trade Center",
-        "Echelon Square, Colombo 01",
-        "Sri Lanka"
+        "35, 1/1 Sunethradevi Rd, Nugegoda, Sri Lanka"
       ]
     },
     {
       icon: Phone,
       title: "Phone Numbers",
       details: [
-        "+94 11 234 5678",
-        "+94 77 123 4567",
-        "Fax: +94 11 234 5679"
+        "+94 11 282 7244",
+        "+94 77 767 2713"
       ]
     },
     {
       icon: Mail,
-      title: "Email Addresses",
+      title: "Email Address",
       details: [
-        "info@ranmalfernando.lk",
-        "projects@ranmalfernando.lk",
-        "careers@ranmalfernando.lk"
+        "ranmalfrnnd@yahoo.com"
       ]
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed"
+        "Monday - Friday: 8:00 AM - 5:30 PM",
+        "Saturday - Sunday: Closed"
       ]
     }
   ];
@@ -87,16 +79,24 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-primary/10 to-accent/5">
-        <div className="container mx-auto px-4">
+      <section
+        className="relative py-32 bg-gradient-to-br from-primary/10 to-accent/5"
+        style={{
+          backgroundImage: "url('/images/contact-bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
-            <h1 className="text-5xl font-bold text-primary">Contact Us</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Ready to discuss your engineering project? Our team of experts is here to 
-              provide consultation and turn your vision into reality.
-            </p>
+        <h1 className="text-5xl font-bold text-white">Contact Us</h1>
+        <p className="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
+          Ready to discuss your engineering project? Our team of experts is here to 
+          provide consultation and turn your vision into reality.
+        </p>
           </div>
         </div>
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       </section>
 
       {/* Contact Form & Info */}
@@ -152,18 +152,6 @@ const Contact = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company/Organization</Label>
-                        <Input
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Your company name"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
                       <Label htmlFor="projectType">Project Type</Label>
                       <Input
                         id="projectType"
@@ -173,6 +161,9 @@ const Contact = () => {
                         placeholder="e.g., Bridge Construction, Building Design, Infrastructure"
                       />
                     </div>
+                    </div>
+
+                    
 
                     <div className="space-y-2">
                       <Label htmlFor="message">Project Details *</Label>
@@ -187,7 +178,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
+                    <Button type="submit" className="w-full">
                       <Send className="mr-2 h-5 w-5" />
                       Send Message
                     </Button>
@@ -227,21 +218,27 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl font-bold text-primary">Visit Our Office</h2>
-            <p className="text-xl text-muted-foreground">
-              Located in the heart of Colombo's business district
-            </p>
+            
           </div>
           
           <Card className="overflow-hidden">
-            <div className="h-96 bg-gradient-to-br from-primary/10 to-accent/5 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <MapPin className="h-16 w-16 text-primary mx-auto" />
-                <h3 className="text-2xl font-bold text-primary">Interactive Map</h3>
-                <p className="text-muted-foreground max-w-md">
-                  Our office is conveniently located in Colombo's World Trade Center, 
-                  easily accessible by public transport and with ample parking facilities.
-                </p>
-              </div>
+            <div className="h-96">
+              {/* 
+                1. Go to Google Maps and find your location.
+                2. Click "Share" -> "Embed a map".
+                3. Copy the HTML and paste it here, replacing this comment and the iframe below.
+              */}
+              <iframe
+                title="RFA Office Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.20959342065!2d79.88326717499605!3d6.865468593133127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a5a9dad462b%3A0x7a8b405015cbfd6f!2sRanmal%20Fernando%20Associates!5e0!3m2!1sen!2slk!4v1754459157504!5m2!1sen!2slk"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              
             </div>
           </Card>
         </div>
