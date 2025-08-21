@@ -17,8 +17,10 @@ import project9 from "@/assets/project9.png";
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [projectsVisible, setProjectsVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
   const heroRef = useRef(null);
   const projectsRef = useRef(null);
+  const ctaRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -26,25 +28,38 @@ const Projects = () => {
       rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target === heroRef.current) {
-              setIsVisible(true);
-            } else if (entry.target === projectsRef.current) {
-              setProjectsVisible(true);
+    let observer: IntersectionObserver;
+
+    // Small delay to ensure elements are properly mounted
+    const timer = setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (entry.target === heroRef.current) {
+                setIsVisible(true);
+              } else if (entry.target === projectsRef.current) {
+                setProjectsVisible(true);
+              } else if (entry.target === ctaRef.current) {
+                setCtaVisible(true);
+              }
             }
-          }
-        });
-      },
-      observerOptions
-    );
+          });
+        },
+        observerOptions
+      );
 
-    if (heroRef.current) observer.observe(heroRef.current);
-    if (projectsRef.current) observer.observe(projectsRef.current);
+      if (heroRef.current) observer.observe(heroRef.current);
+      if (projectsRef.current) observer.observe(projectsRef.current);
+      if (ctaRef.current) observer.observe(ctaRef.current);
+    }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, []);
 
   const projects = [
@@ -240,9 +255,9 @@ const Projects = () => {
 
       #
       {/* CTA Section */}
-          <section ref={projectsRef} className="py-20 bg-gradient-to-br from-primary/5 to-accent/10">
+          <section ref={ctaRef} className="py-20 bg-gradient-to-br from-primary/5 to-accent/10">
             <div className={`container mx-auto px-4 text-center transition-all duration-1000 ${
-              projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <h2 className="text-4xl font-bold text-primary mb-6 animate-fade-in-up">Ready to Start Your Project?</h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
