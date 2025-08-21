@@ -31,7 +31,7 @@ const Navigation = () => {
             <span className="text-base md:text-xl font-bold italic text-primary hidden sm:block">
               Ranmal Fernando Associates
             </span>
-            <span className="text-sm font-bold italic text-primary sm:hidden">
+            <span className="text-base font-bold italic text-primary sm:hidden">
               Ranmal Fernando Associates
             </span>
           </Link>
