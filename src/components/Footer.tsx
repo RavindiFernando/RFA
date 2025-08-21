@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail} from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="space-y-4">
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-sm text-primary-foreground/60">
             © 2024 Ranmal Fernando Associates. All rights reserved.
           </p>

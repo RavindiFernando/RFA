@@ -1,106 +1,117 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Users, Building } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero-engineering.jpg";
-import bridgeProject from "@/assets/bridge-project.jpg";
-import officeBuilding from "@/assets/office-building.jpg";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import "./HeroSectionSwiper.css";
 
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Engineering Excellence" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/10"></div>
-      </div>
+  const [isLoaded, setIsLoaded] = useState(false);
 
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Slideshow */}
+
+      <div className="absolute inset-0 z-0">
+        <Swiper
+          modules={[Pagination, Autoplay, Navigation]}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          loop={true}
+          allowTouchMove={true}
+          navigation
+          pagination={{ clickable: true }}
+          className="w-full h-full hero-swiper"
+        >
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <img
+                src="/images/bg.png"
+                alt="Bridge Engineering Project"
+                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+          
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <img
+                src={heroImage}
+                alt="Commercial Building Project"
+                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <img
+                src="/images/services-bg.webp"
+                alt="Engineering Services"
+                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <img
+                src="/images/contact-bg.jpg"
+                alt="Engineering Consultation"
+                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      
+      {/* Animated gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 pointer-events-none animate-pulse-slow z-10" />
+
+           {/* Content with enhanced animations */}
+      <div className="container mx-auto px-4 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-              Engineering
-              <span className="block text-4xl lg:text-5xl text-primary-foreground/90">
-                Excellence
+          <div className={`text-white space-y-8 pl-8 md:pl-16 lg:pl-24 xl:pl-32 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <span className="inline-block animate-fade-in-up animation-delay-300">Engineering Excellence</span>
+              <span className="block text-4xl lg:text-5xl xl:text-6xl text-primary2 bg-primary2 bg-clip-text text-transparent animate-fade-in-up animation-delay-500">
+                 Within Reach
               </span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 leading-relaxed">
-              Ranmal Fernando Associates delivers innovative engineering solutions 
-              for complex infrastructure projects. With decades of expertise, we 
-              transform ambitious visions into reality.
+            <p className={`text-xl lg:text-2xl text-gray-200 leading-relaxed transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+              Ranmal Fernando Associates delivers trusted structural engineering solutions, combining innovation, precision, and expertise to build lasting structures.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="secondary" asChild>
+            <div className={`flex flex-col sm:flex-row gap-6 transition-all duration-1000 delay-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                className="bg-primary hover:bg-primary-glow text-primary-foreground border-0 text-lg px-8 py-6 transform hover:scale-105 transition-all duration-300 hover:shadow-xl shadow-primary/25" 
+                asChild
+              >
                 <Link to="/projects">
                   View Our Projects
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-6 backdrop-blur-sm bg-white/10 transform hover:scale-105 transition-all duration-300 hover:shadow-xl" 
+                asChild
+              >
                 <Link to="/contact">Get Consultation</Link>
               </Button>
             </div>
           </div>
-
-          {/* Project Images Gallery */}
-          <div className="hidden lg:block">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative overflow-hidden rounded-lg shadow-xl">
-                  <img 
-                    src={bridgeProject} 
-                    alt="Bridge Engineering Project" 
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <p className="text-sm font-medium">Infrastructure</p>
-                  </div>
-                </div>
-                <div className="relative overflow-hidden rounded-lg shadow-xl">
-                  <img 
-                    src="/images/services-bg.webp" 
-                    alt="Engineering Services" 
-                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-2 left-2 text-white">
-                    <p className="text-xs font-medium">Services</p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4 mt-8">
-                <div className="relative overflow-hidden rounded-lg shadow-xl">
-                  <img 
-                    src={officeBuilding} 
-                    alt="Commercial Building Project" 
-                    className="w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-2 left-2 text-white">
-                    <p className="text-xs font-medium">Commercial</p>
-                  </div>
-                </div>
-                <div className="relative overflow-hidden rounded-lg shadow-xl">
-                  <img 
-                    src="/images/contact-bg.jpg" 
-                    alt="Engineering Consultation" 
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <p className="text-sm font-medium">Consultation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          
         </div>
       </div>
     </section>

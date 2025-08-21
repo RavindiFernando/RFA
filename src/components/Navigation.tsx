@@ -18,9 +18,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="backdrop-blur-md border-b sticky top-0 z-50" style={{ backgroundColor: '#f9f6f4cc' }}>
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className="backdrop-blur-md border-b fixed top-0 w-full z-[9999]" style={{ backgroundColor: 'rgba(249, 246, 244, 0.8)' }}>
+      <div className="container mx-auto px-4 py-2">
+        <div className="flex justify-between items-center h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
@@ -28,7 +28,7 @@ const Navigation = () => {
               alt="RFA Logo" 
               className="h-12 w-auto"
             />
-            <span className="text-xl font-bold text-primary">
+            <span className="text-xl font-bold italic text-primary">
               Ranmal Fernando Associates
             </span>
           </Link>
@@ -39,7 +39,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-m font-medium transition-colors hover:text-primary ${
+                className={`text-lg font-medium transition-colors hover:text-primary ${
                   isActive(item.path) ? "text-primary" : "text-muted-foreground"
                 }`}
               >

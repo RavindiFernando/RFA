@@ -1,12 +1,43 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Award, Users, Target, Eye } from "lucide-react";
-import officeImage from "@/assets/office-building.jpg";
+import { Button } from "@/components/ui/button";
+import { useState, useEffect, useRef } from "react";
 import ServicesSection from "@/components/ServicesSection";
 
 const Services = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
+  const heroRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === heroRef.current) {
+              setIsVisible(true);
+            } else if (entry.target === ctaRef.current) {
+              setCtaVisible(true);
+            }
+          }
+        });
+      },
+      observerOptions
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+    if (ctaRef.current) observer.observe(ctaRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const values = [
     {
       icon: Award,
@@ -30,13 +61,7 @@ const Services = () => {
     }
   ];
 
-  const certifications = [
-    "ISO 9001:2015 Quality Management",
-    "Professional Engineers License",
-    "LEED Accredited Professional",
-    "Project Management Professional (PMP)",
-    "Structural Engineering Certification"
-  ];
+  
 
   return (
     <div className="min-h-screen">
@@ -44,6 +69,7 @@ const Services = () => {
       
       {/* Hero Section */}
       <section
+        ref={heroRef}
         className="relative py-32 bg-gradient-to-br from-primary/10 to-accent/5"
         style={{
           backgroundImage: "url('/images/services-bg.webp')",
@@ -52,9 +78,11 @@ const Services = () => {
         }}
       >
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center space-y-6">
-        <h1 className="text-5xl font-bold text-white">Our Servies</h1>
-        <p className="text-xl text-neutral-100 max-w-3xl mx-auto leading-relaxed">
+          <div className={`text-center space-y-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+        <h1 className="text-5xl font-bold text-white animate-fade-in-up">Our Services</h1>
+        <p className="text-xl text-neutral-100 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-300">
           At Ranmal Fernando Associates, we provide reliable structural engineering solutions that ensure every project is safe, efficient, and built to last.
         </p>
           </div>
@@ -64,7 +92,20 @@ const Services = () => {
 
     <ServicesSection />
 
-      
+    {/* CTA Section */}
+          <section ref={ctaRef} className="py-20 bg-gradient-to-br from-primary/5 to-accent/10">
+            <div className={`container mx-auto px-4 text-center transition-all duration-1000 ${
+              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <h2 className="text-4xl font-bold text-primary mb-6 animate-fade-in-up">Looking for expert structural solutions?</h2>
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
+                Let's discuss how our engineering expertise can bring your vision to life.
+              </p>
+              <Button size="lg" className="text-lg font-semibold hover:scale-105 transition-transform duration-300 animate-fade-in-up animation-delay-500" asChild>
+                <a href="/contact" >Get In Touch</a>
+              </Button>
+            </div>
+          </section>
 
       
 

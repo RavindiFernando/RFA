@@ -6,10 +6,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser';
+import { toast as sonnerToast } from "@/components/ui/sonner";
 
 const Contact = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [contactInfoVisible, setContactInfoVisible] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const heroRef = useRef(null);
+  const contactInfoRef = useRef(null);
+  const formRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,20 +25,70 @@ const Contact = () => {
     projectType: "",
     message: ""
   });
-  const { toast } = useToast();
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === heroRef.current) {
+              setIsVisible(true);
+            } else if (entry.target === contactInfoRef.current) {
+              setContactInfoVisible(true);
+            } else if (entry.target === formRef.current) {
+              setFormVisible(true);
+            }
+          }
+        });
+      },
+      observerOptions
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+    if (contactInfoRef.current) observer.observe(contactInfoRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      projectType: "",
-      message: ""
+    emailjs.send(
+      'service_iul8jii', // Replace with your EmailJS service ID
+      'template_qeh7oab', // Replace with your EmailJS template ID
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        project_type: formData.projectType,
+        message: formData.message,
+      },
+      'h75v3Ktw5q1QKHAp7' // Replace with your EmailJS public key
+    )
+    .then(() => {
+      sonnerToast.success("Message Sent!", {
+        description: "Thank you for your inquiry. We'll get back to you soon.",
+        duration: 6000, // stays longer
+        position: "top-center", // more visible
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        message: ""
+      });
+    })
+    .catch(() => {
+      sonnerToast.error("There was a problem sending your message. Please try again later.", {
+        duration: 6000,
+        position: "top-center"
+      });
     });
   };
 
@@ -80,6 +138,7 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section
+        ref={heroRef}
         className="relative py-32 bg-gradient-to-br from-primary/10 to-accent/5"
         style={{
           backgroundImage: "url('/images/contact-bg.jpg')",
@@ -88,9 +147,11 @@ const Contact = () => {
         }}
       >
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center space-y-6">
-        <h1 className="text-5xl font-bold text-white">Contact Us</h1>
-        <p className="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
+          <div className={`text-center space-y-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+        <h1 className="text-5xl font-bold text-white animate-fade-in-up">Contact Us</h1>
+        <p className="text-xl text-neutral-100 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-300">
           Ready to discuss your engineering project? Our team of experts is here to 
           provide consultation and turn your vision into reality.
         </p>
@@ -105,7 +166,13 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8" style={{ backgroundColor: '#f9f6f4cc' }}>
+              <Card 
+                ref={formRef}
+                className={`p-8 transition-all duration-1000 hover:shadow-xl ${
+                  formVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+                }`} 
+                style={{ backgroundColor: '#f9f6f4cc' }}
+              >
                 <CardHeader>
                   <CardTitle className="text-3xl text-primary mb-2">Send Us a Message</CardTitle>
                   <p className="text-muted-foreground">
@@ -188,12 +255,23 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-6">
+            <div ref={contactInfoRef} className="space-y-6">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6" style={{ backgroundColor: '#f9f6f4cc' }}>
+                <Card 
+                  key={index} 
+                  className={`p-6 transition-all duration-700 hover:shadow-lg hover:scale-105 group ${
+                    contactInfoVisible 
+                      ? 'opacity-100 translate-x-0' 
+                      : 'opacity-0 translate-x-8'
+                  }`}
+                  style={{ 
+                    backgroundColor: '#f9f6f4cc',
+                    transitionDelay: `${index * 150}ms`
+                  }}
+                >
                   <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-primary/10 rounded-full">
-                      <info.icon className="h-6 w-6 text-primary" />
+                    <div className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
+                      <info.icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-2">{info.title}</h3>
