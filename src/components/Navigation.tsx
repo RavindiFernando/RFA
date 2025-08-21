@@ -32,7 +32,7 @@ const Navigation = () => {
               Ranmal Fernando Associates
             </span>
             <span className="text-sm font-bold italic text-primary sm:hidden">
-              RFA
+              Ranmal Fernando Associates
             </span>
           </Link>
 
