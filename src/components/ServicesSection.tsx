@@ -1,26 +1,31 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, Hammer, Route, Cog } from "lucide-react";
+import { Building2, ShieldCheck, Anchor, Info, ClipboardCheck } from "lucide-react";
 
 const services = [
   {
     icon: Building2,
     title: "Structural Engineering",
-    description: "Comprehensive structural design and analysis for buildings, bridges, and infrastructure projects with cutting-edge technology."
+    description: "We deliver safe and innovative solutions for residential, commercial, and industrial projects, ensuring strength, durability, and cost-effectiveness."
   },
   {
-    icon: Route,
-    title: "Civil Engineering",
-    description: "Road design, drainage systems, and urban planning solutions that enhance community development and sustainability."
+    icon: Anchor,
+    title: "Foundation & Sub-Structure Engineering",
+    description: "We design shallow and deep foundations, retaining walls, and basements to ensure stability and long-term reliability."
   },
   {
-    icon: Hammer,
-    title: "Infrastructure Development",
-    description: "Large-scale infrastructure projects including transportation networks, utilities, and public facilities."
+    icon: ShieldCheck,
+    title: "Structural Assessments & Strengthening",
+    description: "We assess existing buildings for safety and provide retrofitting and strengthening to extend their lifespan."
   },
   {
-    icon: Cog,
-    title: "Project Management",
-    description: "End-to-end project management services ensuring timely delivery, budget control, and quality assurance."
+    icon: ClipboardCheck,
+    title: "Construction Supervision & Quality Control",
+    description: "Our engineers handle site inspections, reinforcement checks, and compliance reviews to maintain quality and safety."
+  },
+  {
+    icon: Info,
+    title: "Consultancy & Advisory",
+    description: "We offer feasibility studies, cost-effective solutions, and support with approvals to guide projects smoothly."
   }
 ];
 
@@ -30,7 +35,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center place-items-center">
           {services.map((service, index) => (
             <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="text-center">

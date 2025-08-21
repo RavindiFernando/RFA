@@ -105,7 +105,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8">
+              <Card className="p-8" style={{ backgroundColor: '#f9f6f4cc' }}>
                 <CardHeader>
                   <CardTitle className="text-3xl text-primary mb-2">Send Us a Message</CardTitle>
                   <p className="text-muted-foreground">
@@ -190,7 +190,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6">
+                <Card key={index} className="p-6" style={{ backgroundColor: '#f9f6f4cc' }}>
                   <div className="flex items-start space-x-4">
                     <div className="p-3 bg-primary/10 rounded-full">
                       <info.icon className="h-6 w-6 text-primary" />
@@ -221,7 +221,7 @@ const Contact = () => {
             
           </div>
           
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden" style={{ backgroundColor: '#f9f6f4cc' }}>
             <div className="h-96">
               {/* 
                 1. Go to Google Maps and find your location.

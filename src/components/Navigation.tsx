@@ -18,7 +18,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-background/95 backdrop-blur-md border-b sticky top-0 z-50">
+    <nav className="backdrop-blur-md border-b sticky top-0 z-50" style={{ backgroundColor: '#f9f6f4cc' }}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

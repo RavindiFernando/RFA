@@ -2,30 +2,35 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, Users, Target, Eye } from "lucide-react";
+import { Shield, Award, Star, Lightbulb, UserCheck  } from "lucide-react";
 import officeImage from "@/assets/office-building.jpg";
 
 const About = () => {
   const values = [
     {
+      icon: Shield,
+      title: "Safety First",
+      description: "Ensuring every design and project prioritizes the safety of people and structures."
+    },
+    {
       icon: Award,
+      title: "Integrity",
+      description: "Delivering honest, transparent, and ethical engineering solutions."
+    },
+    {
+      icon: Star,
       title: "Excellence",
-      description: "We strive for the highest standards in every project, delivering solutions that exceed expectations."
+      description: "Commitment to high standards in design, execution, and supervision."
     },
     {
-      icon: Users,
-      title: "Collaboration",
-      description: "Working closely with clients and stakeholders to achieve shared goals and sustainable outcomes."
-    },
-    {
-      icon: Target,
+      icon: Lightbulb,
       title: "Innovation",
-      description: "Embracing cutting-edge technology and methodologies to solve complex engineering challenges."
+      description: "Applying modern techniques and creative solutions to solve structural challenges."
     },
     {
-      icon: Eye,
-      title: "Vision",
-      description: "Looking ahead to create infrastructure that serves communities for generations to come."
+      icon: UserCheck,
+      title: "Client Focus",
+      description: "Placing the needs and goals of our clients at the forefront of every project."
     }
   ];
 
@@ -45,10 +50,9 @@ const About = () => {
       <section className="relative py-32 bg-gradient-to-br from-primary/10 to-accent/5">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
-            <h1 className="text-5xl font-bold text-primary">About Ranmal Fernando Associates</h1>
+            <h1 className="text-5xl font-bold text-primary">About Us</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Founded with a vision to transform the engineering landscape, RFA has been at the 
-              forefront of innovative infrastructure development for over two decades.
+              At Ranmal Fernando Associates, we provide reliable and innovative structural engineering solutions, guiding projects from concept to completion with safety, efficiency, and durability at the core.
             </p>
           </div>
         </div>
@@ -98,7 +102,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="h-full text-center hover:shadow-lg transition-all duration-300">
                 <CardHeader>
@@ -118,38 +122,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="p-8 hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-3xl text-primary mb-4">Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  To provide innovative, sustainable, and cost-effective engineering solutions 
-                  that enhance the quality of life in communities while setting new standards 
-                  for professional excellence in the industry.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="p-8 hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-3xl text-primary mb-4">Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  To be the leading engineering consultancy firm in the region, recognized 
-                  for our technical expertise, innovative solutions, and positive impact on 
-                  infrastructure development and community growth.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Certifications */}
       <section className="py-20 bg-primary/5">

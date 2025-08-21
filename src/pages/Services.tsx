@@ -54,9 +54,8 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center space-y-6">
         <h1 className="text-5xl font-bold text-white">Our Servies</h1>
-        <p className="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
-          We provide comprehensive engineering solutions across multiple disciplines, 
-            delivering excellence in every project phase from conception to completion.
+        <p className="text-xl text-neutral-100 max-w-3xl mx-auto leading-relaxed">
+          At Ranmal Fernando Associates, we provide reliable structural engineering solutions that ensure every project is safe, efficient, and built to last.
         </p>
           </div>
         </div>

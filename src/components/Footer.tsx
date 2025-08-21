@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Linkedin, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail} from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -17,8 +17,7 @@ const Footer = () => {
               <span className="text-lg font-bold">Ranmal Fernando Associates</span>
             </div>
             <p className="text-sm text-primary-foreground/80">
-              Leading engineering consultancy delivering innovative solutions for 
-              infrastructure, structural, and civil engineering projects.
+              Leading structural engineering consultancy delivering safe and reliable solutions for commercial, residential,  and industrial projects.
             </p>
           </div>
 
@@ -31,6 +30,9 @@ const Footer = () => {
               </Link>
               <Link to="/about" className="text-sm hover:text-primary-foreground/80 transition-colors">
                 About Us
+              </Link>
+              <Link to="/services" className="text-sm hover:text-primary-foreground/80 transition-colors">
+                Services
               </Link>
               <Link to="/projects" className="text-sm hover:text-primary-foreground/80 transition-colors">
                 Projects
@@ -46,9 +48,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Services</h3>
             <div className="flex flex-col space-y-2 text-sm text-primary-foreground/80">
               <span>Structural Engineering</span>
-              <span>Civil Engineering</span>
-              <span>Infrastructure Design</span>
-              <span>Project Management</span>
+              <span>Foundation & Sub-Structure Engineering</span>
+              <span>Structural Assessments & Strengthening</span>
+              <span>Construction Supervision & Quality Control</span>
+              <span>Consultancy & Advisory</span>
             </div>
           </div>
 
@@ -58,7 +61,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin className="h-4 w-4" />
-                <span>Colombo, Sri Lanka</span>
+                <span>35, 1/1 Sunethradevi Rd, Nugegoda, Sri Lanka</span>
               </div>
               <div className="flex items-center space-x-2 text-sm">
                 <Phone className="h-4 w-4" />
