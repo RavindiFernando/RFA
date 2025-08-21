@@ -20,7 +20,7 @@ const Navigation = () => {
   return (
     <nav className="backdrop-blur-md border-b fixed top-0 w-full z-[9999]" style={{ backgroundColor: 'rgba(249, 246, 244, 0.8)' }}>
       <div className="container mx-auto px-4 py-2">
-        <div className="flex justify-between items-center h-16 md:h-18">
+        <div className="flex justify-between items-center h-13 md:h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
