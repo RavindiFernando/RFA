@@ -20,33 +20,35 @@ const Navigation = () => {
   return (
     <nav className="backdrop-blur-md border-b fixed top-0 w-full z-[9999]" style={{ backgroundColor: 'rgba(249, 246, 244, 0.8)' }}>
       <div className="container mx-auto px-4 py-2">
-        <div className="flex justify-between items-center h-18">
+        <div className="flex justify-between items-center h-16 md:h-18">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
               src="/images/logo.png" 
               alt="RFA Logo" 
-              className="h-12 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
-            <span className="text-xl font-bold italic text-primary">
+            <span className="text-base md:text-xl font-bold italic text-primary hidden sm:block">
               Ranmal Fernando Associates
+            </span>
+            <span className="text-sm font-bold italic text-primary sm:hidden">
+              RFA
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-lg font-medium transition-colors hover:text-primary ${
+                className={`text-base lg:text-lg font-medium transition-colors hover:text-primary ${
                   isActive(item.path) ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            
           </div>
 
           {/* Mobile Menu Button */}

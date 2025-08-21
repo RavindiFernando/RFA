@@ -253,7 +253,7 @@ const Projects = () => {
         </div>
       </section>
 
-      #
+      
       {/* CTA Section */}
           <section ref={ctaRef} className="py-20 bg-gradient-to-br from-primary/5 to-accent/10">
             <div className={`container mx-auto px-4 text-center transition-all duration-1000 ${
