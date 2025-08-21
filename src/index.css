@@ -138,6 +138,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes containedZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes pulseSlow {
   0%, 100% {
     opacity: 0.7;
@@ -171,6 +180,10 @@ All colors MUST be HSL.
 
 .animate-slow-zoom {
   animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+.animate-contained-zoom {
+  animation: containedZoom 9s ease-in-out infinite alternate;
 }
 
 .animate-pulse-slow {

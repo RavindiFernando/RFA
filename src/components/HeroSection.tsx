@@ -23,54 +23,65 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <Swiper
           modules={[Pagination, Autoplay, Navigation]}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          autoplay={{ 
+            delay: 4000, 
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+            stopOnLastSlide: false
+          }}
           loop={true}
+          loopAdditionalSlides={1}
           allowTouchMove={true}
           navigation
           pagination={{ clickable: true }}
+          initialSlide={0}
+          speed={2000}
+          watchSlidesProgress={true}
           className="w-full h-full hero-swiper"
         >
           <SwiperSlide>
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src={heroImage}
+                alt="Commercial Building Project"
+                className="w-full h-full object-cover animate-contained-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src="/images/contact-bg.jpg"
+                alt="Engineering Consultation"
+                className="w-full h-full object-cover animate-contained-zoom"
+                style={{ minHeight: '100vh' }}
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="relative w-full h-full overflow-hidden">
               <img
                 src="/images/bg.png"
                 alt="Bridge Engineering Project"
-                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                className="w-full h-full object-cover animate-contained-zoom"
                 style={{ minHeight: '100vh' }}
               />
             </div>
           </SwiperSlide>
           
+          
           <SwiperSlide>
-            <div className="relative w-full h-full">
-              <img
-                src={heroImage}
-                alt="Commercial Building Project"
-                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
-                style={{ minHeight: '100vh' }}
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full overflow-hidden">
               <img
                 src="/images/services-bg.webp"
                 alt="Engineering Services"
-                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
+                className="w-full h-full object-cover animate-contained-zoom"
                 style={{ minHeight: '100vh' }}
               />
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="relative w-full h-full">
-              <img
-                src="/images/contact-bg.jpg"
-                alt="Engineering Consultation"
-                className="w-full h-full object-cover transform scale-110 animate-slow-zoom"
-                style={{ minHeight: '100vh' }}
-              />
-            </div>
-          </SwiperSlide>
+          
         </Swiper>
       </div>
       
@@ -80,7 +91,7 @@ const HeroSection = () => {
            {/* Content with enhanced animations */}
       <div className="container mx-auto px-4 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`text-white space-y-8 pl-8 md:pl-16 lg:pl-24 xl:pl-32 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`text-white space-y-8 pl-8 md:pl-16 lg:pl-24 xl:pl-32 transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               <span className="inline-block animate-fade-in-up animation-delay-300">Engineering Excellence</span>
               <span className="block text-4xl lg:text-5xl xl:text-6xl text-primary2 bg-primary2 bg-clip-text text-transparent animate-fade-in-up animation-delay-500">

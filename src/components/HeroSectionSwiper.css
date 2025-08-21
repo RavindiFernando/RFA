@@ -1,6 +1,6 @@
 /* Custom Swiper navigation styles for HeroSection */
- .hero-swiper .swiper-button-next,
- .hero-swiper .swiper-button-prev {
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
   top: 50%;
   width: 36px;
   height: 36px;
@@ -11,6 +11,15 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   transition: background 0.2s, transform 0.2s;
   z-index: 20;
+}
+
+/* Prevent initial slide transition animation */
+.hero-swiper .swiper-wrapper {
+  transition-duration: 0ms !important;
+}
+
+.hero-swiper.swiper-initialized .swiper-wrapper {
+  transition-duration: 1000ms !important;
 }
 .hero-swiper .swiper-button-next:hover,
 .hero-swiper .swiper-button-prev:hover {
