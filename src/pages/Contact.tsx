@@ -225,7 +225,7 @@ const Contact = () => {
                         name="projectType"
                         value={formData.projectType}
                         onChange={handleChange}
-                        placeholder="e.g., Bridge Construction, Building Design, Infrastructure"
+                        placeholder="e.g., Building Design"
                       />
                     </div>
                     </div>
