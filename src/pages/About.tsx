@@ -128,7 +128,7 @@ const About = () => {
           <p className="text-muted-foreground animate-fade-in-up animation-delay-700">Founded</p>
             </div>
             <div className="text-center">
-          <h3 className="text-3xl font-bold text-primary animate-fade-in-up animation-delay-500">300+</h3>
+          <h3 className="text-3xl font-bold text-primary animate-fade-in-up animation-delay-500">500+</h3>
           <p className="text-muted-foreground animate-fade-in-up animation-delay-700">Projects</p>
             </div>
           </div>
